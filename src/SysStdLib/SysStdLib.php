@@ -1,6 +1,6 @@
 <?php
 
-namespace shopsys;
+namespace SysStdLib;
 
 class SysStdLib
 {
@@ -10,17 +10,17 @@ class SysStdLib
     * followed by sysconfig.global.php
     * and sysconfig.global.php.dist
     */
-    public static function getConfig($module = '')
+    public static function getConfig($module = '', $dir = __DIR__)
     {
     	if(empty($module)) throw new \Exception("Error Processing Request", 1);
 
         $configFilesArrayMap = [];
         $folders = array(
-            __DIR__ . "/../config/",
-            __DIR__ . "/../../config/",
-            __DIR__ . "/../../../".$module."/config/",
-            __DIR__ . "/../../../../config/autoload/",
-            __DIR__ . "/../../../../../config/autoload/",
+            $dir . "/../config/",
+            $dir . "/../../config/",
+            $dir . "/../../../".$module."/config/",
+            $dir . "/../../../../config/autoload/",
+            $dir . "/../../../../../config/autoload/",
         );
         foreach ($folders as $folder) {
             $fileMap = [];
