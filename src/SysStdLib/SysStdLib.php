@@ -29,6 +29,7 @@ class SysStdLib
                 foreach ($fileMap as $fileArray) {
                     foreach ($fileArray as $file) {
                         $configFilesArrayMap[] = $folder . $file;
+
                     }
                 }
             }
@@ -61,7 +62,8 @@ class SysStdLib
             }
         }
 
-        $config=self::array_filter_recursive($a);
+//        $config=self::array_filter_recursive($a);
+        $config=self::merge($a,$a);
         $i=count($config);
         $holdover=$out=[];
         while($i>0){
@@ -76,11 +78,11 @@ class SysStdLib
             $i--;
         }
 
-/*
-        echo("out");
-        var_dump($out);
-        echo("out done");
-*/
+
+//        echo("\n\nout");
+//        var_dump($out);
+//        echo("out done");
+
         return $out;
     }
 
